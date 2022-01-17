@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from 'remix';
 import type { LinksFunction, MetaFunction } from 'remix';
+import Footer from '~/components/Footer';
 import Header from '~/components/Header';
 import styles from './tailwind.css';
 
@@ -51,9 +52,12 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="font-base text-slate-700">
+      <body className="font-base text-slate-700 flex flex-col h-screen">
         <Header />
-        <Outlet />
+        <main className="grow">
+          <Outlet />
+        </main>
+        <Footer />
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
